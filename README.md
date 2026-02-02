@@ -15,58 +15,58 @@ A comprehensive Drupal 10 module that provides event registration functionality 
 
 ## 📁 Project Structure
 
-event_registration/
-├── config/
-│ └── install/
-│ ├── event_registration.settings.yml
-│ └── …
-├── sql/
-│ └── event_registration.install
-├── src/
-│ ├── Controller/
-│ │ └── CsvExportController.php
-│ ├── Form/
-│ │ ├── EventConfigForm.php
-│ │ ├── EventRegistrationForm.php
-│ │ ├── RegistrationListForm.php
-│ │ └── AdminSettingsForm.php
-│ └── Service/
-│ └── MailService.php
-├── assets/
-│ ├── screenshots/
-│ │ ├── form_interface.png
-│ │ ├── admin_panel.png
-│ │ └── registration_list.png
-│ └── icons/
-├── docs/
-│ ├── installation.md
-│ ├── configuration.md
-│ └── troubleshooting.md
-├── tests/
-│ └── src/
-│ └── Functional/
-│ ├── EventRegistrationTest.php
-│ └── AdminInterfaceTest.php
-├── .github/
-│ ├── ISSUE_TEMPLATE/
-│ │ ├── bug_report.md
-│ │ └── feature_request.md
-│ └── workflows/
-│ └── ci.yml
-├── event_registration.info.yml
-├── event_registration.module
-├── event_registration.install
-├── event_registration.links.menu.yml
-├── event_registration.routing.yml
-├── event_registration.services.yml
-├── README.md
-├── CHANGELOG.md
-├── CONTRIBUTING.md
-├── SECURITY.md
-├── UPGRADE.md
-├── LICENSE
-├── composer.json
-└── .gitignore
+| Path                                             | Description                                     |
+| ------------------------------------------------ | ----------------------------------------------- |
+| `event_registration/`                            | Root directory of the Event Registration module |
+| `config/`                                        | Configuration files                             |
+| `config/install/`                                | Default configuration installed with the module |
+| `config/install/event_registration.settings.yml` | Default admin configuration                     |
+| `sql/`                                           | SQL related files                               |
+| `sql/event_registration.install`                 | Database schema definitions                     |
+| `src/`                                           | PHP source code (PSR-4 compliant)               |
+| `src/Controller/`                                | Controllers                                     |
+| `src/Controller/CsvExportController.php`         | CSV export controller                           |
+| `src/Form/`                                      | Drupal Form API implementations                 |
+| `src/Form/EventConfigForm.php`                   | Admin event creation form                       |
+| `src/Form/EventRegistrationForm.php`             | Public registration form                        |
+| `src/Form/RegistrationListForm.php`              | Admin registration listing                      |
+| `src/Form/AdminSettingsForm.php`                 | Admin configuration form                        |
+| `src/Service/`                                   | Custom services                                 |
+| `src/Service/MailService.php`                    | Mail handling service                           |
+| `assets/`                                        | Static assets                                   |
+| `assets/screenshots/`                            | Module screenshots                              |
+| `assets/screenshots/form_interface.png`          | Public form screenshot                          |
+| `assets/screenshots/admin_panel.png`             | Admin panel screenshot                          |
+| `assets/screenshots/registration_list.png`       | Registration list screenshot                    |
+| `assets/icons/`                                  | Module icons                                    |
+| `docs/`                                          | Documentation files                             |
+| `docs/installation.md`                           | Installation guide                              |
+| `docs/configuration.md`                          | Configuration documentation                     |
+| `docs/troubleshooting.md`                        | Troubleshooting guide                           |
+| `tests/`                                         | Automated tests                                 |
+| `tests/src/Functional/`                          | Functional test cases                           |
+| `tests/src/Functional/EventRegistrationTest.php` | Registration functionality tests                |
+| `tests/src/Functional/AdminInterfaceTest.php`    | Admin interface tests                           |
+| `.github/`                                       | GitHub related files                            |
+| `.github/ISSUE_TEMPLATE/`                        | Issue templates                                 |
+| `.github/ISSUE_TEMPLATE/bug_report.md`           | Bug report template                             |
+| `.github/ISSUE_TEMPLATE/feature_request.md`      | Feature request template                        |
+| `.github/workflows/ci.yml`                       | GitHub Actions CI workflow                      |
+| `event_registration.info.yml`                    | Module metadata                                 |
+| `event_registration.module`                      | Module hooks                                    |
+| `event_registration.install`                     | Install/uninstall hooks                         |
+| `event_registration.links.menu.yml`              | Admin menu links                                |
+| `event_registration.routing.yml`                 | Route definitions                               |
+| `event_registration.services.yml`                | Service definitions                             |
+| `README.md`                                      | Project documentation                           |
+| `CHANGELOG.md`                                   | Version history                                 |
+| `CONTRIBUTING.md`                                | Contribution guidelines                         |
+| `SECURITY.md`                                    | Security policy                                 |
+| `UPGRADE.md`                                     | Upgrade instructions                            |
+| `LICENSE`                                        | License information                             |
+| `composer.json`                                  | Composer configuration                          |
+| `.gitignore`                                     | Git ignore rules                                |
+
 
 ## 🛠️ Requirements
 
