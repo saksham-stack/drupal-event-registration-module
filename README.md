@@ -213,32 +213,3 @@ This project is licensed under the GPL v2 or later license.
 **Module Version**: 1.0
 
 
-event-registration-drupal-module/
-├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   └── workflows/
-│       └── ci.yml
-├── assets/
-│   ├── screenshots/
-│   └── logo.png
-├── docs/
-│   ├── installation.md
-│   ├── configuration.md
-│   └── troubleshooting.md
-├── src/
-│   ├── Controller/
-│   ├── Form/
-│   └── Service/
-├── config/
-├── sql/
-├── tests/
-│   └── src/
-│       └── Functional/
-├── .gitignore
-├── composer.json
-├── LICENSE
-├── README.md
-├── CHANGELOG.md
-├── SECURITY.md
-└── UPGRADE.md
