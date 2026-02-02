@@ -1,192 +1,44 @@
 <?php
 
 /**
- * @file
- * Install, update and uninstall functions for the Event Registration module.
- */
-
-/**
  * Implements hook_schema().
  */
 function event_registration_schema() {
-  $schema = [];
-
-  $schema['event_registration_event'] = [
-    'description' => 'Stores event information.',
-    'fields' => [
-      'id' => [
-        'type' => 'serial',
-        'not null' => TRUE,
-        'description' => 'Primary Key: Unique event ID.',
-      ],
-      'title' => [
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => TRUE,
-        'default' => '',
-        'description' => 'Event title.',
-      ],
-      'description' => [
-        'type' => 'text',
-        'not null' => FALSE,
-        'size' => 'big',
-        'description' => 'Event description.',
-      ],
-      'event_date' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Event date (Unix timestamp).',
-      ],
-      'location' => [
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => FALSE,
-        'default' => '',
-        'description' => 'Event location.',
-      ],
-      'max_attendees' => [
-        'type' => 'int',
-        'not null' => FALSE,
-        'default' => NULL,
-        'description' => 'Maximum number of attendees (NULL = unlimited).',
-      ],
-      'category' => [
-        'type' => 'varchar',
-        'length' => 50,
-        'not null' => FALSE,
-        'default' => '',
-        'description' => 'Event category.',
-      ],
-      'registration_start' => [
-        'type' => 'int',
-        'not null' => FALSE,
-        'default' => 0,
-        'description' => 'Registration start date (Unix timestamp).',
-      ],
-      'registration_end' => [
-        'type' => 'int',
-        'not null' => FALSE,
-        'default' => 0,
-        'description' => 'Registration end date (Unix timestamp).',
-      ],
-      'status' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 1,
-        'size' => 'tiny',
-        'description' => 'Event status: 0 = inactive, 1 = active.',
-      ],
-      'uid' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'User ID of event creator.',
-      ],
-      'created' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Timestamp when event was created.',
-      ],
-      'changed' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Timestamp when event was last changed.',
-      ],
-    ],
-    'primary key' => ['id'],
-    'indexes' => [
-      'event_date' => ['event_date'],
-      'category' => ['category'],
-      'registration_dates' => ['registration_start', 'registration_end'],
-      'status' => ['status'],
-      'uid' => ['uid'],
-    ],
-  ];
-
   $schema['event_registration_entry'] = [
     'description' => 'Stores event registration entries.',
     'fields' => [
       'id' => [
         'type' => 'serial',
+        'unsigned' => TRUE,
         'not null' => TRUE,
-        'description' => 'Primary Key: Unique registration ID.',
       ],
-      'event_id' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Foreign key to event_registration_event.id.',
-      ],
-      'uid' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'User ID of registrant.',
-      ],
-      'first_name' => [
+      'full_name' => [
         'type' => 'varchar',
-        'length' => 100,
+        'length' => 255,
         'not null' => TRUE,
-        'default' => '',
-        'description' => 'Registrant first name.',
-      ],
-      'last_name' => [
-        'type' => 'varchar',
-        'length' => 100,
-        'not null' => TRUE,
-        'default' => '',
-        'description' => 'Registrant last name.',
       ],
       'email' => [
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' => '',
-        'description' => 'Registrant email address.',
       ],
-      'phone' => [
+      'college' => [
         'type' => 'varchar',
-        'length' => 20,
-        'not null' => FALSE,
-        'default' => '',
-        'description' => 'Registrant phone number.',
-      ],
-      'status' => [
-        'type' => 'varchar',
-        'length' => 20,
+        'length' => 255,
         'not null' => TRUE,
-        'default' => 'pending',
-        'description' => 'Registration status: pending, confirmed, cancelled.',
+      ],
+      'department' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
       ],
       'created' => [
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
-        'description' => 'Timestamp when registration was created.',
-      ],
-      'changed' => [
-        'type' => 'int',
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Timestamp when registration was last changed.',
       ],
     ],
     'primary key' => ['id'],
-    'indexes' => [
-      'event_id' => ['event_id'],
-      'uid' => ['uid'],
-      'email' => ['email'],
-      'status' => ['status'],
-    ],
-    'foreign keys' => [
-      'event' => [
-        'table' => 'event_registration_event',
-        'columns' => ['event_id' => 'id'],
-      ],
-    ],
   ];
 
   return $schema;

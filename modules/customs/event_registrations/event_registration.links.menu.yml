@@ -1,20 +1,31 @@
 event_registration.admin_settings:
   title: 'Event Registration Settings'
-  description: 'Configure event registration settings and email notifications.'
-  parent: system.admin_config_system
+  parent: system.admin_config_services
   route_name: event_registration.admin_settings
   weight: 10
 
-event_registration.event_config:
+event_registration.add_event:
   title: 'Add Event'
-  description: 'Create a new event for registration.'
-  parent: system.admin_config_system
+  parent: event_registration.admin_settings
   route_name: event_registration.event_config
-  weight: 11
+  weight: 15
+
+event_registration.view_registrations:
+  title: 'View Registrations'
+  parent: event_registration.admin_settings
+  route_name: event_registration.registration_list
+  weight: 20
+
+event_registration.export_csv:
+  title: 'Export to CSV'
+  parent: event_registration.admin_settings
+  route_name: event_registration.csv_export
+  weight: 25
 
 event_registration.registration_list:
   title: 'Event Registrations'
-  description: 'View, filter, and export event registrations.'
-  parent: system.admin_content
+  description: 'View event registrations'
   route_name: event_registration.registration_list
-  weight: 10
+  parent: system.admin_content
+  weight: 1
+

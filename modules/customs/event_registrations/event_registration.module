@@ -23,15 +23,36 @@ function event_registration_help($route_name, RouteMatchInterface $route_match) 
  * Implements hook_mail().
  */
 function event_registration_mail($key, &$message, $params) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  
   switch ($key) {
     case 'registration_confirmation':
-      $message['subject'] = $params['subject'];
-      $message['body'][] = $params['body'];
+      $message['subject'] = t('Registration Confirmation for @event', ['@event' => $params['event_title']], ['langcode' => $language]);
+      $message['body'][] = t('Dear @name,', ['@name' => $params['recipient_name']], ['langcode' => $language]);
+      $message['body'][] = '';
+      $message['body'][] = t('Thank you for registering for the event: @event', ['@event' => $params['event_title']], ['langcode' => $language]);
+      $message['body'][] = t('Event Date: @date', ['@date' => $params['event_date']], ['langcode' => $language]);
+      if (!empty($params['event_location'])) {
+        $message['body'][] = t('Location: @location', ['@location' => $params['event_location']], ['langcode' => $language]);
+      }
+      $message['body'][] = '';
+      $message['body'][] = t('We look forward to seeing you there!', [], ['langcode' => $language]);
+      $message['body'][] = '';
+      $message['body'][] = t('Best regards,', [], ['langcode' => $language]);
+      $message['body'][] = t('The Event Team', [], ['langcode' => $language]);
       break;
 
     case 'admin_notification':
-      $message['subject'] = $params['subject'];
-      $message['body'][] = $params['body'];
+      $message['subject'] = t('New Registration for @event', ['@event' => $params['event_title']], ['langcode' => $language]);
+      $message['body'][] = t('A new registration has been submitted:', [], ['langcode' => $language]);
+      $message['body'][] = '';
+      $message['body'][] = t('Registrant: @name (@email)', ['@name' => $params['registrant_name'], '@email' => $params['registrant_email']], ['langcode' => $language]);
+      $message['body'][] = t('College: @college', ['@college' => $params['registrant_college']], ['langcode' => $language]);
+      $message['body'][] = t('Department: @department', ['@department' => $params['registrant_department']], ['langcode' => $language]);
+      $message['body'][] = '';
+      $message['body'][] = t('Event: @event', ['@event' => $params['event_title']], ['langcode' => $language]);
+      $message['body'][] = t('Event Date: @date', ['@date' => $params['event_date']], ['langcode' => $language]);
+      $message['body'][] = t('Registered at: @time', ['@time' => $params['registration_time']], ['langcode' => $language]);
       break;
   }
 }

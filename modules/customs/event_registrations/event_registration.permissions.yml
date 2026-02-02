@@ -1,12 +1,6 @@
 administer event registration:
-  title: 'Administer event registration'
-  description: 'Configure event registration settings, manage events, and view all registrations.'
-  restrict access: true
+  title: 'Administer Event Registration'
+  description: 'Manage events and registrations'
 
 access event registration:
-  title: 'Access event registration'
-  description: 'View and register for events.'
-
-manage own event registrations:
-  title: 'Manage own event registrations'
-  description: 'Edit and cancel own event registrations.'
+  title: 'Access Event Registration Form'

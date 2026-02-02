@@ -140,7 +140,7 @@ class EventConfigForm extends FormBase {
       $end_timestamp = $registration_end->getTimestamp();
 
       if ($end_timestamp <= $start_timestamp) {
-        $form_state->setErrorByName('registration_end_date', 
+        $form_state->setErrorByName('registration_end_date',
           $this->t('Registration end date must be after registration start date.'));
       }
     }
@@ -150,7 +150,7 @@ class EventConfigForm extends FormBase {
       $end_timestamp = $registration_end->getTimestamp();
 
       if ($event_timestamp <= $end_timestamp) {
-        $form_state->setErrorByName('event_date', 
+        $form_state->setErrorByName('event_date',
           $this->t('Event date should be after registration end date.'));
       }
     }
@@ -168,7 +168,7 @@ class EventConfigForm extends FormBase {
     $registration_end = $form_state->getValue('registration_end_date')->getTimestamp();
 
     $fields = [
-      'title' => $form_state->getValue('event_name'),
+      'event_name' => $form_state->getValue('event_name'), // Changed from 'title' to 'event_name'
       'description' => $form_state->getValue('description') ?: '',
       'event_date' => $form_state->getValue('event_date')->getTimestamp(),
       'location' => $form_state->getValue('location') ?: '',
@@ -186,15 +186,15 @@ class EventConfigForm extends FormBase {
       $event_id = $this->database->insert('event_registration_event')
         ->fields($fields)
         ->execute();
-      
+
       $this->messenger()->addStatus(
         $this->t('Event "@title" has been created successfully with ID @id.', [
-          '@title' => $fields['title'],
+          '@title' => $fields['event_name'],
           '@id' => $event_id,
         ])
       );
 
-      $form_state->setRedirect('system.admin_config_system');
+      $form_state->setRedirect('event_registration.event_config'); // Redirect back to add another event
     }
     catch (\Exception $e) {
       $this->messenger()->addError(

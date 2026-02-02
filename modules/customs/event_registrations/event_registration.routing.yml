@@ -14,6 +14,14 @@ event_registration.event_config:
   requirements:
     _permission: 'administer event registration'
 
+event_registration.add_event:
+  path: '/admin/event-registration/add-event'
+  defaults:
+    _form: '\Drupal\event_registration\Form\EventConfigForm'
+    _title: 'Add Event'
+  requirements:
+    _permission: 'administer event registration'
+
 event_registration.registration_list:
   path: '/admin/event-registration/registrations'
   defaults:
@@ -31,7 +39,7 @@ event_registration.csv_export:
   options:
     no_cache: TRUE
 
-event_registration.register:
+event_registration.public_form:
   path: '/event-registration'
   defaults:
     _form: '\Drupal\event_registration\Form\EventRegistrationForm'
