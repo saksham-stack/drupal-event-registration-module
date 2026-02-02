@@ -15,15 +15,59 @@ A comprehensive Drupal 10 module that provides event registration functionality 
 
 ## 🛠️ Requirements
 
+- XAMPP (Apache, MySQL, PHP)
 - Drupal 10.x
 - PHP 8.1 or higher
 - MySQL database
 
-## 📦 Installation
+## Installation
 
-1. Place the `event_registration` module in your Drupal installation's `modules` directory
-2. Enable the module through the Drupal admin interface (`admin/modules`)
-3. Or enable via Drush: `drush en event_registration`
+### 1. Setting up XAMPP Environment
+
+1. **Download and Install XAMPP**
+   - Visit [https://www.apachefriends.org/](https://www.apachefriends.org/)
+   - Download XAMPP for your operating system
+   - Install XAMPP and start Apache and MySQL services
+
+2. **Configure XAMPP Directory**
+   - Navigate to your XAMPP installation directory (typically `C:\xampp\` on Windows)
+   - Go to the `htdocs` folder
+   - Create a new folder called `drupal` (or your preferred name)
+
+### 2. Setting up Drupal
+
+1. **Download Drupal 10**
+   - Visit [https://www.drupal.org/download](https://www.drupal.org/download)
+   - Download the latest Drupal 10 version
+   - Extract the contents to your `xampp\htdocs\drupal` folder
+
+2. **Set up Database**
+   - Open your browser and go to `http://localhost/phpmyadmin`
+   - Create a new database (e.g., `drupal_db`)
+   - Note down the database name, username (usually `root`), and password
+
+3. **Install Drupal**
+   - Open your browser and go to `http://localhost/drupal`
+   - Follow the Drupal installation wizard
+   - Use the database details you created earlier
+
+### 3. Installing the Event Registration Module
+
+1. **Place the Module**
+   - Navigate to your Drupal installation directory: `xampp\htdocs\drupal`
+   - Go to the `modules` directory
+   - Create a `custom` folder if it doesn't exist
+   - Place the `event_registration` module folder in `modules\custom\`
+
+2. **Enable the Module**
+   - Login to your Drupal admin panel
+   - Go to `admin/modules`
+   - Find "Event Registration" in the list
+   - Check the checkbox and click "Install"
+
+   OR via Drush:
+   ```bash
+   drush en event_registration
 
 ## ⚙️ Configuration
 
@@ -204,18 +248,10 @@ For support, please contact the module maintainer at: **sakshamguptaqaz@gmail.co
 
 ## 📄 License
 
-This project is licensed under the GPL v2 or later license 📜.
+This project is licensed under the GPL v2.0 or later license 📜.
 
 ---
 
-<<<<<<< HEAD
 **Project Status** 🚀: Production Ready
 **Last Updated** ⏰: February 2026
 **Module Version** 🆚: 1.0
-=======
-**Project Status**: Production Ready
-**Last Updated**: February 2026
-**Module Version**: 1.0
-
-
->>>>>>> 0a570bb582d03a9060c1393757f60562f8bfa793
