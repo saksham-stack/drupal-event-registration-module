@@ -70,11 +70,13 @@ A comprehensive Drupal 10 module that provides event registration functionality 
 ## 📸 Screenshots
 
 ### Public Registration Form
-![Event Registration Form](assets/screenshots/Screenshot 2026-02-03 034552.png)
+![Event Registration Form](https://raw.githubusercontent.com/saksham-stack/drupal-event-registration-module
+/main/assets/screenshots/form_interface.png)
 *Public registration form where users can select events and register*
 
 ### Admin Management Interface
-![Admin Panel](assets/screenshots/modules/Screenshot 2026-02-03 034656.png)
+![Admin Panel](https://raw.githubusercontent.com/saksham-stack/drupal-event-registration-module
+/main/assets/screenshots/admin_page.png)
 *Admin interface for managing events and registrations*
 
 
