@@ -67,6 +67,16 @@ A comprehensive Drupal 10 module that provides event registration functionality 
 | `composer.json`                                  | Composer configuration                          |
 | `.gitignore`                                     | Git ignore rules                                |
 
+## 📸 Screenshots
+
+### Public Registration Form
+![Event Registration Form](assets/screenshots/Screenshot 2026-02-03 034552.png)
+*Public registration form where users can select events and register*
+
+### Admin Management Interface
+![Admin Panel](assets/screenshots/modules/Screenshot 2026-02-03 034656.png)
+*Admin interface for managing events and registrations*
+
 
 ## 🛠️ Requirements
 
